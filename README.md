@@ -8,4 +8,5 @@
 <img width="454" alt="Screenshot 2024-04-07 at 9 22 10 PM" src="https://github.com/panktishah99/MobileAppProject/assets/147209312/b8e0df62-4d70-4890-b208-e84259fe517b">
 
 Platform used: React Native 
-In the App.js, used navigator to create two pages - the Home page and User Profile page and both pages contain a button to navigate back and forth.
+
+In App.js, used navigator to create two pages - the Home page and User Profile page and both pages contain a button to navigate back and forth.
