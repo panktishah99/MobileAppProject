@@ -5,19 +5,19 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import * as ImagePicker from 'expo-image-picker';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-console.log('AsyncStorage:', AsyncStorage); // Log the imported object
+console.log('AsyncStorage:', AsyncStorage); 
 
 function HomeScreen({ navigation }) {
   const [userNumber, setUserNumber] = useState('');
 
   useEffect(() => {
-    // Load the custom image size from AsyncStorage when the component mounts
+  
     const loadStoredNumber = async () => {
       try {
           const storedNumber = await AsyncStorage.getItem('userNumber');
 
           if (storedNumber) {
-            // Set custom width and height states with retrieved values
+            
             setUserNumber(userNumber);
           }
           console.log('loaded the number',userNumber);
@@ -77,7 +77,7 @@ function ImagePickerScreen({ navigation }) {
   const [savedImages, setSavedImages] = useState([]);
 
   const pickImage = async () => {
-    // No permissions request is necessary for launching the image library
+    
     try {
       let result = await ImagePicker.launchImageLibraryAsync({
         mediaTypes: ImagePicker.MediaTypeOptions.All,
@@ -113,7 +113,7 @@ function ImagePickerScreen({ navigation }) {
 
       await AsyncStorage.setItem('savedImages', JSON.stringify(images));
 
-      console.log('Image saved successfully:', theImage); // Add this line for debugging
+      console.log('Image saved successfully:', theImage); 
 
     } catch (error) {
       console.error('Error saving image:', error);
@@ -145,15 +145,15 @@ function ImageLoaderScreen({ navigation }) {
 
 const handleDeleteImage = async (image) => {
   try {
-    // Retrieve saved images from AsyncStorage
+    
     const imagesData = await AsyncStorage.getItem('savedImages');
     if (imagesData) {
       let images = JSON.parse(imagesData);
-      // Filter out the image to be deleted
+      
       images = images.filter((img) => img.uri !== image.uri || img.name !== image.name);
-      // Update the saved images in AsyncStorage
+      
       await AsyncStorage.setItem('savedImages', JSON.stringify(images));
-      // Update state to reflect the changes
+      
       setSavedImages(images);
     }
   } catch (error) {
@@ -166,7 +166,7 @@ useEffect(() => {
   const getSavedImages = async () => {
     try {
       const imagesData = await AsyncStorage.getItem('savedImages');
-      console.log('Retrieved images data:', imagesData); // Add this line for debugging
+      console.log('Retrieved images data:', imagesData); 
       if (imagesData) {
         const images = JSON.parse(imagesData);
         setSavedImages(images);
@@ -244,9 +244,9 @@ const styles = StyleSheet.create({
   },
 
     thumbnail: {
-    width: 80, // Adjust as needed
-    height: 80, // Adjust as needed
-    resizeMode: 'cover', // or 'contain' based on your preference
+    width: 80, 
+    height: 80, 
+    resizeMode: 'cover', 
     borderRadius: 5,
   },
 
@@ -256,8 +256,8 @@ const styles = StyleSheet.create({
   },
 
   imageName: {
-    marginTop: 5, // Adjust as needed
-    textAlign: 'center', // Adjust as needed
+    marginTop: 5, 
+    textAlign: 'center', 
   },
   input: {
     width: 80,
