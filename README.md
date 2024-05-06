@@ -1,6 +1,7 @@
 # MobileAppProject
- HW 2 - Storage management
-Details in HW2.docx
+ HW 3 - State management
+Details in HW3.docx
+Main code in App.js
 
 
 
